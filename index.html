@@ -2,15 +2,122 @@
 <html>
     <head>
         <title>Vakmira</title>
+        <style>
+            body {
+                    margin: 0;
+                    font-family: Arial, Helvetica, sans-serif;
+                    background: #f7f7f5;
+                    color: #1f2933;
+                    line-height: 1.6;
+                }
+
+                .container {
+                max-width: 1100px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 24px;
+                padding-right: 24px;
+                }
+
+                .container > div:first-child h1 {
+                    margin-top: 0;
+                }
+
+                .container > section:first-of-type {
+                    margin-top: 0rem;
+                }
+
+
+            h1 {
+                font-size: 3rem;
+                margin-bottom: 0.5rem;
+                letter-spacing: -1px;
+                }
+            
+            .hero {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                }
+
+            .hero h1 {
+                margin-bottom: 0.75rem;
+                }
+
+            .hero p {
+                margin-top: 0;
+                font-size: 1.1rem;
+                }
+
+            h2 {
+                font-size: 2rem;
+                margin-top: 0;
+                margin-bottom: 0.75rem;
+                letter-spacing: -0.5px;
+                }
+
+            p {
+                font-size: 1.05rem;
+                }
+
+            section {
+                margin-top: 2rem;
+                }
+            .service-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                align-items: start;
+                }
+            .service-card {
+                padding: 2rem;
+                border: 1px solid #d9dde3;
+                border-radius: 12px;
+                background: #ffffff;
+                }
+
+            details {
+                margin-top: 1rem;
+                padding-top: 0.25rem;
+                }
+
+            summary {
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 1.05rem;
+                padding: 0.35rem 0;
+                }
+
+            ul {
+                margin-top: 0.75rem;
+                margin-bottom: 1rem;
+                padding-left: 1.5rem;
+                }
+
+            li {
+                margin-bottom: 0.35rem;
+                }
+            @media (max-width: 700px) {
+                .service-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+        </style>
     </head>
+
     <body>
-        <div>
+    
+        <main class="container">
+    
+            <div class="hero">
             <!-- Company name and details -->
+
             <h1>Vakmira</h1>
             <p> 
             Welcome to <strong>Vakmira</strong>.
             </p>
-        </div>
+            </div>
+
             <!-- ========================= -->
             <!-- Services -->
             <!-- ========================= -->
@@ -18,10 +125,8 @@
             <section>
                 <div class="service-container">
 
-                    <section>
-
-                        <div>
-
+                    <div class="service-card">
+                        
                             <h2>Vakmira Languages</h2>
 
                             <p>
@@ -58,13 +163,10 @@
                                 </ul>
 
                             </details>
-
-                        </div>
-
-                    </section>
+                    </div>
 
 
-                    <div>
+                    <div class="service-card">
 
                         <h2>Vakmira Pharma Consulting</h2>
 
@@ -112,8 +214,6 @@
             </section>
 
 
-
-
             <section>
 
                 <h2>Get in Touch</h2>
@@ -139,5 +239,6 @@
                 </p>
 
             </section>
+        </main>
     </body>
 </html>
