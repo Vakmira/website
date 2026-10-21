@@ -7,6 +7,7 @@
   --muted: #66778C;
   --line: #E1E8EC;
   --hero: #D3E8EA;
+  --soft: #F4F8F9;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -14,10 +15,10 @@ body { margin: 0; font: 16px/1.75 Arial, Helvetica, sans-serif; color: var(--tex
 h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; color: var(--navy); line-height: 1.25; margin: 0; }
 .wrap { max-width: 1060px; margin: 0 auto; padding: 0 28px; }
 
-/* Header */
-header { border-bottom: 1px solid var(--line); }
+/* Header: the logo stays big, but its empty margins are trimmed so the band is slimmer */
+header { border-bottom: 1px solid var(--line); overflow: hidden; }
 .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 6px 0; }
-.bar img { height: 140px; display: block; }
+.bar img { height: 140px; margin: -24px 0; display: block; }
 nav { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
 nav a { color: var(--navy); text-decoration: none; font-weight: 500; font-size: .95rem; }
 nav a:hover { color: var(--teal-dark); }
@@ -26,6 +27,7 @@ nav .pill:hover { border-color: var(--teal); }
 
 /* Opening section */
 .hero { background: var(--hero); padding: 72px 0 96px; position: relative; }
+.hero::after { content: none; }
 .hero h1 { font-size: clamp(1.9rem, 4.4vw, 2.8rem); max-width: 700px; }
 .hero p { font-size: 1.1rem; color: var(--text); max-width: 560px; margin: 22px 0 0; }
 
@@ -38,6 +40,7 @@ nav .pill:hover { border-color: var(--teal); }
   transform: translateX(-50%);
   animation: nudge 2s ease-in-out infinite;
 }
+.cue ~ .cue { display: none; }
 .cue:hover { background: var(--teal-dark); color: #fff; animation: none; }
 @keyframes nudge {
   0%, 100% { transform: translate(-50%, 0); }
@@ -61,15 +64,16 @@ section { padding: 88px 0; }
 h2 { font-size: 1.9rem; margin-bottom: 12px; }
 .intro { color: var(--muted); max-width: 560px; margin: 0 0 56px; }
 
-/* Services */
+/* Services: a very soft tint, so it differs from About (white) */
+.strip + section { background: var(--soft); }
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px 72px; }
 .svc { border-top: 1px solid var(--line); padding-top: 24px; }
 .svc h3 { font-size: 1.3rem; margin-bottom: 10px; }
 .svc p { margin: 0 0 10px; }
 .svc small { color: var(--muted); font-size: .88rem; }
 
-/* About: white, separated from Services by a thin line */
-.alt { background: #fff; border-top: 1px solid var(--line); }
+/* About: white */
+.alt { background: #fff; }
 .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 72px; }
 .about p { margin: 0 0 16px; }
 .facts { list-style: none; margin: 0; padding: 0; font-size: .95rem; }
@@ -77,18 +81,20 @@ h2 { font-size: 1.9rem; margin-bottom: 12px; }
 .facts li:first-child { border-top: 1px solid var(--line); }
 .facts b { display: block; color: var(--navy); font-weight: 600; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; }
 
-/* Contact: same teal as the opening section */
-.contact { background: var(--hero); }
+/* Contact: the same teal as the opening section, with less height */
+.contact { background: var(--hero); padding: 56px 0; }
 .contact p { max-width: 560px; margin: 0; }
+.contact .btns { margin-top: 26px; }
 
-footer { padding: 32px 0; font-size: .9rem; color: var(--muted); }
+footer { padding: 28px 0; font-size: .9rem; color: var(--muted); }
 footer .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 footer img { height: 30px; vertical-align: middle; margin-right: 10px; }
 
 /* Phones */
 @media (max-width: 760px) {
   .grid, .about { grid-template-columns: 1fr; gap: 40px; }
-  .bar img { height: 72px; }
+  .bar img { height: 80px; margin: -10px 0; }
   .hero { padding: 48px 0 80px; }
   section { padding: 56px 0; }
+  .contact { padding: 44px 0; }
 }
